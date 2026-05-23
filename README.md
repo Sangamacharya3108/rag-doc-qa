@@ -1,6 +1,8 @@
 # PDF Q&A System with RAG
 
-This is a simple Document Question Answering (Q&A) system built using Retrieval-Augmented Generation (RAG). You can upload any PDF document and ask questions about its content. The app will search for the most relevant parts of the document and generate an response based only on the text it found.
+**Live Demo:** [https://share.streamlit.io/sangamacharya3108/rag-doc-qa/main/app.py](https://share.streamlit.io/sangamacharya3108/rag-doc-qa/main/app.py)
+
+This is a simple Document Question Answering (Q&A) system built using Retrieval-Augmented Generation (RAG). You can upload any PDF document and ask questions about its content. The app will search for the most relevant parts of the document and generate a response based only on the text it found.
 
 ## Features
 
