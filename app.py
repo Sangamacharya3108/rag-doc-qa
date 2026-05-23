@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 import rag_engine
 
 st.set_page_config(page_title="Document Q&A", layout="centered")
@@ -63,7 +64,7 @@ else:
         with st.chat_message("user"):
             st.write(query)
             
-        with st.spinner("Thinking..."):
+        with st.spinner("Analyzing document..."):
             relevant_chunks = rag_engine.retrieve_relevant_chunks(
                 query, st.session_state.vector_index, st.session_state.chunks
             )
@@ -72,7 +73,16 @@ else:
             )
             
         with st.chat_message("assistant"):
-            st.write(answer)
+            message_placeholder = st.empty()
+            full_response = ""
+            words = answer.split(" ")
+            for i, word in enumerate(words):
+                full_response += word
+                if i < len(words) - 1:
+                    full_response += " "
+                message_placeholder.markdown(full_response + "▌")
+                time.sleep(0.04)
+            message_placeholder.markdown(full_response)
             
         st.session_state.chat_history.append(("user", query))
         st.session_state.chat_history.append(("assistant", answer))
